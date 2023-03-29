@@ -1,30 +1,75 @@
 1.. What are the six combinations of access modifier keywords and what do they do? 
+Access modifier controls whether the classes, methods, objects can be used from other code.
+It is used to set the access level/visibility for classes, fields, methods and properties.
+public: Can be accessed from anywhere
+protected: Can be accessed within the class and its subclass. Cannot be accessed from non-derived class
+private: Can only be accessed within the class.
+internal: Can only be accessed within the same assembly
+protected internal: Can be accessed wthinin the class, its subclass plus other non-derived class within the same assembly.
+private internal: Can be accessed wthin the class and derived class within same assembly.
+
 2.What is the difference between the static, const, and readonly keywords when applied to a type member?
 3. What does a constructor do?
+Constructor is used to create an object of the class and initialize class member.
+Constructor is a special member function that shares the name of the class with no return type, just public ClassName()
+
 4. Why is the partial keyword useful?
 5. What is a tuple?
 6. What does the C# record keyword do?
 7. What does overloading and overriding mean?
+Overloading: Method in same class share the same method name, but different input parameters. The parameters need to have either 
+different number of parameters, or different data type in parameters, or different order of parameters. Cannot be exactly same!
+Overriding: Methods in parent class and its child class share the same method name and same input parameters. The method in parent class with
+keyword Abstract or virtual being overriden in child class.
+Overloading is compile time polimorphism or static polymorphism, while overriding is run time polymorphism or dynamic polymorphism.
+
 8. What is the difference between a field and a property?
 9. How do you make a method parameter optional?
 10. What is an interface and how is it different from abstract class?
 11. What accessibility level are members of an interface?
 12. True/False. Polymorphism allows derived classes to provide different implementations
 of the same method.
+True, this is called overriding and is one type of polymorphism (dynamic polymorphism).
+
 13. True/False. The override keyword is used to indicate that a method in a derived class is
 providing its own implementation of a method.
+True. When using upcasting and call a overriden method, the method from child class would be accessed.
+
 14. True/False. The new keyword is used to indicate that a method in a derived class is
 providing its own implementation of a method.
-15. True/False. Abstract methods can be used in a normal (non-abstract) class. 16.
-True/False. Normal (non-abstract) methods can be used in an abstract class. 17. True/False.
-Derived classes can override methods that were virtual in the base class. 18. True/False.
-Derived classes can override methods that were abstract in the base class. 19. True/False.
-In a derived class, you can override a method that was neither virtual non abstract in the
+True. When using upcasting and call a new method from child class, the method from parent class would be accessed.
+When using new keyword, you are not override the method from parent class but create a new method with same name.
+
+
+15. True/False. Abstract methods can be used in a normal (non-abstract) class.
+False. Any class that contains abstract method is abstract class.
+
+16.True/False. Normal (non-abstract) methods can be used in an abstract class. 
+True.
+
+17. True/False. Derived classes can override methods that were virtual in the base class. 
+True
+
+18. True/False. Derived classes can override methods that were abstract in the base class. 
+True
+
+19. True/False. In a derived class, you can override a method that was neither virtual non abstract in the
 base class.
-20. True/False. A class that implements an interface does not have to provide an
-implementation for all of the members of the interface.
-21. True/False. A class that implements an interface is allowed to have other members that
-aren’t defined in the interface.
+False. 
+20. True/False. A class that implements an interface does not have to provide an implementation for all of the members of the interface.
+False. Must implement all the methods in interface if inheirt from an interface
+
+
+21. True/False. A class that implements an interface is allowed to have other members that aren’t defined in the interface.
+True
+
 22. True/False. A class can have more than one base class.
-23. True/False. A class can implement more than one interface.What is meant by the terms managed resource and unmanaged resource in .NET
+False, a class cannot inherit from more than 1 class.
+
+23. True/False. A class can implement more than one interface. 
+True
+
+What is meant by the terms managed resource and unmanaged resource in .NET
+
+
 24. What's the purpose of Garbage Collector in .NET?
