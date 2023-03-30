@@ -9,13 +9,27 @@ protected internal: Can be accessed wthinin the class, its subclass plus other n
 private internal: Can be accessed wthin the class and derived class within same assembly.
 
 2.What is the difference between the static, const, and readonly keywords when applied to a type member?
+Static and constan members can be accessed by Class.Name, but not object, readonly members can only be accessed by using object
+Static member can be accessed and modified, constant cannot be modified, readonly member can only be changed in the constructor.
+Constant are by default static, it is a compile time constant, while readonly is used for run-time constant.
+
 3. What does a constructor do?
 Constructor is used to create an object of the class and initialize class member.
 Constructor is a special member function that shares the name of the class with no return type, just public ClassName()
 
 4. Why is the partial keyword useful?
+Partial keyword is used to split the definiton of a class, interface, struct, or method over two more source files. Each source file contains a
+section of the method definition, and are combined together when the application is compiled.
+Use partial for Code organization when a class have large amount of methods. When more people work on the same class, it is useful to use partial to make
+sure each person work on some part of the class. Partial keyword is useful when you want to create extensible class.
+
 5. What is a tuple?
+Tuple is a lightweight data structure that can group multiple data elements. The elements in tuple could be different type. 
+Tuple is value type variable, the element of tuple are value fields, so tuple is mutable.
+
 6. What does the C# record keyword do?
+Record keyword is used to define immutable reference types for data storation and representation.
+
 7. What does overloading and overriding mean?
 Overloading: Method in same class share the same method name, but different input parameters. The parameters need to have either 
 different number of parameters, or different data type in parameters, or different order of parameters. Cannot be exactly same!
@@ -24,9 +38,27 @@ keyword Abstract or virtual being overriden in child class.
 Overloading is compile time polimorphism or static polymorphism, while overriding is run time polymorphism or dynamic polymorphism.
 
 8. What is the difference between a field and a property?
+A field is a variable that is defined directly as a member of a class, a property is a member that provides a way to get or set value of a private field
+Field is defined directly while properties are defined with get and set methods.
+Properties do not have storage location.
+
+
 9. How do you make a method parameter optional?
+We can make a method parameter optional by providing a default value when defined the method.
+Also, we can use overloading to make parameter optional, two methods with same name but different number of parameter
+Using params keyword, allows you to pass any number of parameters to a method. Can only use params keyword for only one parameter and need to be last
+parameter
+
 10. What is an interface and how is it different from abstract class?
+Intercace is a contract that gives a list of methods which must be implemented by the derived class.
+Interface can only have method declaration and not implementation, but abstract class can have method with implementation
+Abstract class can contain non-abstract method but interface cannot, interface member are by default abstract and public
+Interface cannot have constructor and variables but abstract class can
+Interface can support multiple inheritance but abstract class cannot
+
 11. What accessibility level are members of an interface?
+All members in interface are public. If is not public, class inherited from interface cannot implement the interface correctly
+
 12. True/False. Polymorphism allows derived classes to provide different implementations
 of the same method.
 True, this is called overriding and is one type of polymorphism (dynamic polymorphism).
@@ -56,6 +88,7 @@ True
 19. True/False. In a derived class, you can override a method that was neither virtual non abstract in the
 base class.
 False. 
+
 20. True/False. A class that implements an interface does not have to provide an implementation for all of the members of the interface.
 False. Must implement all the methods in interface if inheirt from an interface
 
@@ -70,6 +103,12 @@ False, a class cannot inherit from more than 1 class.
 True
 
 What is meant by the terms managed resource and unmanaged resource in .NET
+A managed resource is a resource that is allocated and managed by the .Net runtime through garbage collector typically.
+The unmanaged resource is usually used to describe something not directly under the control of garbage collector.
 
 
 24. What's the purpose of Garbage Collector in .NET?
+Free developers from manually release memory
+Allocates objects on the managed heap efficiently
+Reclaims objects that are no longer being used, clear their memory, and keeps memory available for future allocations.
+Provides memory safety by prevent attempting to access memory for an object that's already been freed.
